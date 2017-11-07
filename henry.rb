@@ -36,7 +36,6 @@ def stringMode(str)
       end
     end
   end
-  puts cons
   mode = 'none'
   modenum = 0
   cons.each do |rec|
@@ -47,7 +46,6 @@ def stringMode(str)
       mode = 'none'
     end
   end
-  puts modenum
   if modenum > 2
     return mode
   else
@@ -60,9 +58,8 @@ def makeB(str)
   ind = 0
   if stringMode(str) == 'none'
     str.split('').each do |l|
-      print str[ind], ":", isSignif(str, ind)
       if isSignif(str, ind) == false
-        string += 'b'
+        string += 'B'
       else
         string += l
       end
@@ -71,7 +68,7 @@ def makeB(str)
   else
     str.split('').each do |l|
       if l == stringMode(str)
-        string += 'b'
+        string += 'B'
       else
         string += l
       end
@@ -132,18 +129,40 @@ def translateWord(str)
   elsif str.length < 4
     return str
   elsif str.length <= 5 && vowels.include?(str[0]) == false
-    str[0] = 'b'
+    str[0] = 'B'
     return str
   else
     return makeB(str)
   end
 end
 
+def chances()
+  random = Random.rand(1..30)
+  string = "none"
+  if random == 1
+    string = "don't come to school tomorrow."
+  elsif random == 2
+    string = "Hey Beter!"
+  elsif random == 3
+    string = "To be fair, you have to have a very high IQ to understand Rick and Morty. The humour is extremely subtle, and without a solid grasp of theoretical physics most of the jokes will go over a typical viewer’s head. There’s also Rick’s nihilistic outlook, which is deftly woven into his characterisation, his personal philosophy draws heavily from Narodnaya Volya literature, for instance. The fans understand this stuff. they have the intellectual capacity to truly appreciate the depthsof these jokes, to realise that they’re not just funny, they say something deep about LIFE. As a consequence people who dislike Rick & Morty truly ARE idiots, of course they wouldn’t appreciate, for instance, the humour in Rick’s existential catchphrase “Wubba Lubba Dub Dub,” which itself is a cryptic reference to Turgenev’s Russian epic Fathers and Sons. I’m smirking right now just imagining one of those addlepated simpletons scratching their heads in confusion as Dan Harmon’s genius witunfolds itself on their television screens. What fools.. how I pity them."
+  end
+  return string
+end
+
 def main()
   full = ""
-  "you foolish boy, you absolute buffoon. How dare you, how fucking dare you come on my minecraft server and talk shit about Rick as well as Morty? Who the fuck do you think you are? You simpletons are just jealous of my intellect. Go drink some cocacola. You are also gay and shit. Lmao. Robert is not as gay as you. Ben is not as gay as you. Avi is not as gay as you. Even I, Henry, am not as gay as you.".downcase.split(" ").each do |str|
-    full += translateWord(str)
-    full += " "
+  other = chances()
+  if other == "none"
+    ARGV[0].downcase.split(" ").each do |str|
+      full += translateWord(str)
+      full += " "
+    end
+    puts "\n" + full + "\n"
+    system("say #{full}")
+  else
+    puts "\n" + other + "\n"
+    system("say #{other}")
   end
-  puts full
 end
+
+main()
