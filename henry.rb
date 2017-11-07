@@ -126,6 +126,30 @@ def translateWord(str)
     when 3
       return "hømößęxûåł"
     end
+  elsif str == 'nigger' || str == 'nigga'
+    return "bibbo"
+  elsif str == 'who' || str == 'whom'
+    whichWho = Random.rand(1..6)
+    case whichWho
+    when 1
+      return 'whomst'
+    when 2
+      return 'whomst\'d'
+    when 3
+      return 'whomst\'d\'ve'
+    when 4
+      return 'whomst\'d\'ve\'ly\'yaint\'nt\'ed\'ies\'s\'y\'es'
+    when 5
+      return 'whomst\'th'
+    when 6
+      return 'whomst\'d\'ve\'lu\'yaint\'nt\'ed\'ies\'s\'y\'es\'nt\'t\'re\'ing\'able\'tic\'ive\'al\'nt\'ne\'m\'ll\'ble\'al\'ny'
+    end
+  elsif str == 'want'
+    return 'require'
+  elsif str == 'wanted'
+    return 'required'
+  elsif str == 'wants'
+    return 'requires'
   elsif str.length < 4
     return str
   elsif str.length <= 5 && vowels.include?(str[0]) == false
