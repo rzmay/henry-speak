@@ -132,6 +132,16 @@ def translateWord(str)
     when 3
       return "hømößęxûåł"
     end
+  elsif str == 'stupid' || str == 'dumb' || str == 'foolish'
+    whichRetard = Random.rand(1..3)
+    case whichRetard
+    when 1
+      return 'retarded'
+    when 2
+      return 'autistic'
+    when 3
+      return str + ' and also ' + translateWord('gay')
+    end
   elsif str == 'nigger' || str == 'nigga'
     return "bibbo"
   elsif str == 'who' || str == 'whom'
