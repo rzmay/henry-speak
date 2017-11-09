@@ -10,7 +10,7 @@ def isSignif(str, ind)
     return true
   elsif vowels.include?(str[ind+1]) == false || vowels.include?(str[ind+1]) == false
     return true
-  elsif str[ind] =='h' && vowels.include?(str[ind+1]) == false
+  elsif str[ind] =='h' && vowels.include?(str[ind-1]) == false
     return true
   else
     return false
