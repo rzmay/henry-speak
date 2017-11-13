@@ -97,17 +97,17 @@ def makeB(str)
   return string
 end
 
-def translateWord(str)
+def translateWord(str, fustr, ind)
   vowels = ['a','e','i','o','u','y',' ','.',',',';',':','"','\'','!','?','r','l']
-  names = "Noah Liam Mason Jacob William Ethan James Alexander Michael Benjamin Elijah Daniel Aiden Logan Matthew Lucas Jackson David Oliver Jayden Joseph Gabriel Samuel Carter Anthony John Dylan Luke Henry Andrew Isaac Christopher Joshua Wyatt Sebastian Owen Caleb Nathan Ryan Jack Hunter Levi Christian Jaxon Julian Landon Grayson Jonathan Isaiah Charles Thomas Aaron Eli Connor Jeremiah Cameron Josiah Adrian Colton Jordan Brayden Nicholas Robert Angel Hudson Lincoln Evan Dominic Austin Gavin Nolan Parker Adam Chase Jace Ian Cooper Easton Kevin Jose Tyler Brandon Asher Jaxson Mateo Jason Ayden Zachary Carson Xavier Leo Ezra Bentley Sawyer Kayden Blake Nathaniel Gerald Robert Avi Ben Oscar Lucas Sequoyah".downcase.split(" ")
+  names = "Noah Liam Mason Jacob William Ethan James Alexander Michael Benjamin Elijah Daniel Aiden Logan Matthew Lucas Jackson David Oliver Jayden Joseph Gabriel Samuel Carter Anthony John Dylan Luke Henry Andrew Isaac Christopher Joshua Wyatt Sebastian Owen Caleb Nathan Ryan Jack Hunter Levi Christian Jaxon Julian Landon Grayson Jonathan Isaiah Charles Thomas Aaron Eli Connor Jeremiah Cameron Josiah Adrian Colton Jordan Brayden Nicholas Robert Angel Hudson Lincoln Evan Dominic Austin Gavin Nolan Parker Adam Chase Jace Ian Cooper Easton Kevin Jose Tyler Brandon Asher Jaxson Mateo Jason Ayden Zachary Carson Xavier Leo Ezra Bentley Sawyer Kayden Blake Nathaniel Gerald Robert Avi Ben Oscar Lucas Sequoyah Jude".downcase.split(" ")
   beverages = "beer tea brandy cocoa cocktail coffee coke juice lemonade liquor milk milkshake punch soda water whiskey wine".downcase.split(" ")
   if str == "rick"
     return "Pickle Jeoff"
   elsif names.include?(str)
-    numb = Random.rand(1...6)
-    joest = Random.rand(1...10)
+    numb = fauxRand(fustr, ind, 1, 6)
+    joest = fauxRand(fustr, ind, 1, 10)
     if numb == 3
-      numb2 = Random.rand(0..8)
+      numb2 = fauxRand(fustr, ind, 0, 8)
       case numb2
       when 1
         tempret = "Geoff"
@@ -141,7 +141,7 @@ def translateWord(str)
     end
     return tempret
   elsif str == 'gay' || str == 'homosexual' || str == 'homo' || str == 'fag' || str == 'faggot'
-    whichGay = Random.rand(1..3)
+    whichGay = fauxRand(fustr, ind, 1, 3)
     case whichGay
     when 1
       return "gæ"
@@ -151,7 +151,7 @@ def translateWord(str)
       return "hømößęxûåł"
     end
   elsif str == 'stupid' || str == 'dumb' || str == 'foolish'
-    whichRetard = Random.rand(1..3)
+    whichRetard = fauxRand(fustr, ind, 1, 3)
     case whichRetard
     when 1
       return 'retarded'
@@ -163,7 +163,7 @@ def translateWord(str)
   elsif str == 'nigger' || str == 'nigga'
     return "bibbo"
   elsif str == 'who' || str == 'whom'
-    whichWho = Random.rand(1..6)
+    whichWho = fauxRand(fustr, ind, 1, 6)
     case whichWho
     when 1
       return 'whomst'
@@ -185,7 +185,7 @@ def translateWord(str)
   elsif str == 'wants'
     return 'requires'
   elsif str == 'cool' || str == 'awesome' || str == 'good' || str == 'great'
-    swagBucks = Random.rand(0..14)
+    swagBucks = fauxRand(fustr, ind, 0, 19)
     case swagBucks
     when 0
       return 'swagbucks'
@@ -217,9 +217,19 @@ def translateWord(str)
       return 'mad swagbucks'
     when 14
       return 'very niceu, Caesarino'
+    when 15
+      return 'swagbuck'
+    when 16
+      return 'singular swagbuck'
+    when 17
+      return 'swagbux'
+    when 18
+      return 'robux'
+    when 19
+      return 'robuck'
     end
   elsif str == 'very' || str == 'exceedingly' || str == 'really'
-    bigWord = Random.rand(0..5)
+    bigWord = fauxRand(fustr, ind, 0, 5)
     case bigWord
     when 0
       return 'big'
@@ -235,8 +245,8 @@ def translateWord(str)
       return 'mega'
     end
   elsif beverages.include?(str)
-    whichBev = Random.rand(1..3)
-    includeSwag = Random.rand(1..3)
+    whichBev = fauxRand(fustr, ind, 1, 3)
+    includeSwag = fauxRand(fustr, ind, 1, 3)
     if includeSwag == 2
       case whichBev
       when 1
@@ -283,9 +293,11 @@ def main()
   full = ""
   other = chances()
   if other == "none"
+    ind = 0
     ARGV[0].downcase.split(" ").each do |str|
-      full += translateWord(str)
+      full += translateWord(str, ARGV[0], ind)
       full += " "
+      ind+=1
     end
     puts "\n" + full + "\n"
     system("say \"#{full}\"")
