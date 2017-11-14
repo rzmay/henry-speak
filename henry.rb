@@ -3,12 +3,19 @@ def fauxRand(str, ind, min, max)
   num2 = str.split(" ").length
   num3 = str.split(" ")[ind].length
   ret = (num1**num3) / (num2+num3)
-  ret = ((ret**num2)/(num1*num3))
+  if num2 > 1
+    ret = ((ret**num2)/(num1*num3))
+  else
+    ret = ((ret**9)/(num1*num3))
+  end
   digs = max.to_s.length
   goodNum = ret.to_s[(ret.to_s.length)/2..((ret.to_s.length)/2)+digs-1].to_i
   ind1 = (ret.to_s.length)/2
   ind2 = ((ret.to_s.length)/2)+digs-1
   while goodNum < min || goodNum > max
+    if ind2 >= ret.to_s.length
+      ret = (ret/num1)**2
+    end
     ind1+=1
     ind2+=1
     goodNum = ret.to_s[ind1..ind2].to_i
