@@ -165,7 +165,7 @@ def translateWord(str, fustr, ind)
     when 2
       return 'autistic'
     when 3
-      return str + ' and also ' + translateWord('gay')
+      return str + ' and also ' + translateWord('gay' fustr, ind)
     end
   elsif str == 'nigger' || str == 'nigga'
     return "bibbo"
