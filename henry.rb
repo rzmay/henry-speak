@@ -110,6 +110,14 @@ def translateWord(str, fustr, ind)
   beverages = "beer tea brandy cocoa cocktail coffee coke juice lemonade liquor milk milkshake punch soda water whiskey wine".downcase.split(" ")
   if str == "rick"
     return "Pickle Jeoff"
+  elsif (str == "are" || str == "am") && fustr.split(" ")[ind+1] != 'a' && fustr.split(" ")[ind+1] != 'the' && fustr.split(" ")[ind+1] != 'an'
+    return 'have'
+  elsif (str == "was" || str == "were") && fustr.split(" ")[ind+1] != 'a' && fustr.split(" ")[ind+1] != 'the' && fustr.split(" ")[ind+1] != 'an'
+    return 'had'
+  elsif str == "is" && fustr.split(" ")[ind+1] != 'a' && fustr.split(" ")[ind+1] != 'the' && fustr.split(" ")[ind+1] != 'an'
+    return 'has'
+  elsif str == 'a'
+    return 'an'
   elsif names.include?(str)
     numb = fauxRand(fustr, ind, 1, 6)
     joest = fauxRand(fustr, ind, 1, 10)
