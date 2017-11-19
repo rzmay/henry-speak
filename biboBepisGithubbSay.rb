@@ -86,7 +86,7 @@ def makeB(str)
   if stringMode(str) == 'none'
     str.split('').each do |l|
       if isSignif(str, ind) == false
-        string += 'B'
+        string += 'b'
       else
         string += l
       end
@@ -95,7 +95,7 @@ def makeB(str)
   else
     str.split('').each do |l|
       if l == stringMode(str)
-        string += 'B'
+        string += 'b'
       else
         string += l
       end
@@ -110,6 +110,14 @@ def translateWord(str, fustr, ind)
   beverages = "beer tea brandy cocoa cocktail coffee coke juice lemonade liquor milk milkshake punch soda water whiskey wine".downcase.split(" ")
   if str == "rick"
     return "Pickle Jeoff"
+  elsif (str == "are" || str == "am") && fustr.split(" ")[ind+1] != 'a' && fustr.split(" ")[ind+1] != 'the' && fustr.split(" ")[ind+1] != 'an'
+    return 'have'
+  elsif (str == "was" || str == "were") && fustr.split(" ")[ind+1] != 'a' && fustr.split(" ")[ind+1] != 'the' && fustr.split(" ")[ind+1] != 'an'
+    return 'had'
+  elsif str == "is" && fustr.split(" ")[ind+1] != 'a' && fustr.split(" ")[ind+1] != 'the' && fustr.split(" ")[ind+1] != 'an'
+    return 'has'
+  elsif str == 'a'
+    return 'an'
   elsif names.include?(str)
     numb = fauxRand(fustr, ind, 1, 6)
     joest = fauxRand(fustr, ind, 1, 10)
@@ -131,7 +139,7 @@ def translateWord(str, fustr, ind)
       when 7
         tempret = "Polnajeff"
       when 8
-        tempret = "The Bool-Aid Man"
+        tempret = "The bool-Aid Man"
       else
         tempret = "Nama Jeff"
       end
@@ -139,9 +147,9 @@ def translateWord(str, fustr, ind)
         tempret += " Joestar"
       end
     elsif numb == 4
-      tempret = "Beter"
+      tempret = "beter"
       if joest == 5
-        tempret += " Boestar"
+        tempret += " boestar"
       end
     else
       tempret = str
@@ -276,7 +284,7 @@ def translateWord(str, fustr, ind)
   elsif str.length < 4
     return str
   elsif str.length <= 5 && vowels.include?(str[0]) == false
-    str[0] = 'B'
+    str[0] = 'b'
     return str
   else
     return makeB(str)

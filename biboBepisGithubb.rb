@@ -86,7 +86,7 @@ def makeB(str)
   if stringMode(str) == 'none'
     str.split('').each do |l|
       if isSignif(str, ind) == false
-        string += 'B'
+        string += '🅱️ '
       else
         string += l
       end
@@ -95,7 +95,7 @@ def makeB(str)
   else
     str.split('').each do |l|
       if l == stringMode(str)
-        string += 'B'
+        string += '🅱️ '
       else
         string += l
       end
@@ -139,7 +139,7 @@ def translateWord(str, fustr, ind)
       when 7
         tempret = "Polnajeff"
       when 8
-        tempret = "The Bool-Aid Man"
+        tempret = "The 🅱️ ool-Aid Man"
       else
         tempret = "Nama Jeff"
       end
@@ -147,9 +147,9 @@ def translateWord(str, fustr, ind)
         tempret += " Joestar"
       end
     elsif numb == 4
-      tempret = "Beter"
+      tempret = "🅱️ eter"
       if joest == 5
-        tempret += " Boestar"
+        tempret += " 🅱️ oestar"
       end
     else
       tempret = str
@@ -173,7 +173,7 @@ def translateWord(str, fustr, ind)
     when 2
       return 'autistic'
     when 3
-      return str + ' and also ' + translateWord('gay' fustr, ind)
+      return str + ' and also ' + translateWord('gay', fustr, ind)
     end
   elsif str == 'nigger' || str == 'nigga'
     return "bibbo"
@@ -191,7 +191,7 @@ def translateWord(str, fustr, ind)
     when 5
       return 'whomst\'th'
     when 6
-      return 'whomst\'d\'ve\'lu\'yaint\'nt\'ed\'ies\'s\'y\'es\'nt\'t\'re\'ing\'able\'tic\'ive\'al\'nt\'ne\'m\'ll\'ble\'al\'ny'
+      return 'whomst\'d\'ve\'lu\'yaint\'nt\'ed\'ies\'s\'y\'es\'nt\'t\'re\'ing\'a🅱️ le\'tic\'ive\'al\'nt\'ne\'m\'ll\'🅱️ le\'al\'ny'
     end
   elsif str == 'want'
     return 'require'
@@ -203,51 +203,51 @@ def translateWord(str, fustr, ind)
     swagBucks = fauxRand(fustr, ind, 0, 19)
     case swagBucks
     when 0
-      return 'swagbucks'
+      return 'swag🅱️ ucks'
     when 1
-      return 'big swagbucks'
+      return 'big swag🅱️ ucks'
     when 2
-      return 'mega swagbucks'
+      return 'mega swag🅱️ ucks'
     when 3
-      return 'enormous swagbucks'
+      return 'enormous swag🅱️ ucks'
     when 4
-      return 'large swagbucks'
+      return 'large swag🅱️ ucks'
     when 5
-      return 'omnidirectional swagbucks'
+      return 'omnidirectional swag🅱️ ucks'
     when 6
-      return 'truncated swagbucks'
+      return 'truncated swag🅱️ ucks'
     when 7
-      return 'flat swagbucks'
+      return 'flat swag🅱️ ucks'
     when 8
-      return 'round swagbucks'
+      return 'round swag🅱️ ucks'
     when 9
-      return 'elongated swagbucks'
+      return 'elongated swag🅱️ ucks'
     when 10
-      return 'spherical swagbucks'
+      return 'spherical swag🅱️ ucks'
     when 11
-      return 'lanky swagbucks'
+      return 'lanky swag🅱️ ucks'
     when 12
       return 'greato daze'
     when 13
-      return 'mad swagbucks'
+      return 'mad swag🅱️ ucks'
     when 14
       return 'very niceu, Caesarino'
     when 15
-      return 'swagbuck'
+      return 'swag🅱️ uck'
     when 16
-      return 'singular swagbuck'
+      return 'singular swag🅱️ uck'
     when 17
-      return 'swagbux'
+      return 'swag🅱️ ux'
     when 18
-      return 'robux'
+      return 'ro🅱️ ux'
     when 19
-      return 'robuck'
+      return 'ro🅱️ uck'
     end
   elsif str == 'very' || str == 'exceedingly' || str == 'really'
     bigWord = fauxRand(fustr, ind, 0, 5)
     case bigWord
     when 0
-      return 'big'
+      return '🅱️ ig'
     when 1
       return 'large'
     when 2
@@ -265,26 +265,26 @@ def translateWord(str, fustr, ind)
     if includeSwag == 2
       case whichBev
       when 1
-        return "bepis, the beverage for children with swagger,"
+        return "🅱️ epis, the 🅱️ everage for children with swagger,"
       when 2
-        return "bobabola, the beverage for children with swagger,"
+        return "🅱️ o🅱️ a🅱️ ola, the 🅱️ everage for children with swagger,"
       when 3
-        return "bool-aid, the beverage for children with swagger,"
+        return "🅱️ ool-aid, the 🅱️ everage for children with swagger,"
       end
     else
       case whichBev
       when 1
-        return "bepis"
+        return "🅱️ epis"
       when 2
-        return "bobabola"
+        return "🅱️ o🅱️ a🅱️ ola"
       when 3
-        return "bool-aid"
+        return "🅱️ ool-aid"
       end
     end
   elsif str.length < 4
     return str
   elsif str.length <= 5 && vowels.include?(str[0]) == false
-    str[0] = 'B'
+    str[0] = '🅱️ '
     return str
   else
     return makeB(str)
@@ -310,15 +310,16 @@ def main()
   if other == "none"
     ind = 0
     ARGV[0].downcase.split(" ").each do |str|
+      puts "changing: ", str, ind
       full += translateWord(str, ARGV[0], ind)
       full += " "
       ind+=1
     end
     puts "\n" + full + "\n"
-    system("say \"#{full}\"")
+    system("echo \"#{full}\"")
   else
     puts "\n" + other + "\n"
-    system("say \"#{other}\"")
+    system("echo \"#{other}\"")
   end
 end
 
