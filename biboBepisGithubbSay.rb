@@ -118,6 +118,8 @@ def translateWord(str, fustr, ind)
     return 'has'
   elsif str == 'a'
     return 'an'
+  elsif str == 'like'
+    return 'perhaps enjoy'
   elsif names.include?(str)
     numb = fauxRand(fustr, ind, 1, 6)
     joest = fauxRand(fustr, ind, 1, 10)
@@ -304,22 +306,24 @@ def chances()
   return string
 end
 
+
 def main()
   full = ""
   other = chances()
   if other == "none"
     ind = 0
     ARGV[0].downcase.split(" ").each do |str|
-      puts "changing: ", str, ind
       full += translateWord(str, ARGV[0], ind)
       full += " "
       ind+=1
     end
     puts "\n" + full + "\n"
     system("say \"#{full}\"")
+    return full
   else
     puts "\n" + other + "\n"
     system("say \"#{other}\"")
+    return other
   end
 end
 
