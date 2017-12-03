@@ -157,28 +157,6 @@ def translateWord(str, fustr, ind)
       tempret = str
     end
     return tempret
-  elsif str == 'gay' || str == 'homosexual' || str == 'homo' || str == 'fag' || str == 'faggot'
-    whichGay = fauxRand(fustr, ind, 1, 3)
-    case whichGay
-    when 1
-      return "gæ"
-    when 2
-      return "gau"
-    when 3
-      return "hømößęxûåł"
-    end
-  elsif str == 'stupid' || str == 'dumb' || str == 'foolish'
-    whichRetard = fauxRand(fustr, ind, 1, 3)
-    case whichRetard
-    when 1
-      return 'retarded'
-    when 2
-      return 'autistic'
-    when 3
-      return str + ' and also ' + translateWord('gay', fustr, ind)
-    end
-  elsif str == 'nigger' || str == 'nigga'
-    return "bibbo"
   elsif str == 'who' || str == 'whom'
     whichWho = fauxRand(fustr, ind, 1, 6)
     case whichWho
