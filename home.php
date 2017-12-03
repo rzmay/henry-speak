@@ -143,20 +143,20 @@
     <body>
         <ul>
           <li><a class="active">Home</a></li>
-          <li><a href="comment.php">Contact</a></li>
-          <li style="float:right"><a href="about.html">About</a></li>
+          <li><a href="src/comment.php">Contact</a></li>
+          <li style="float:right"><a href="src/about.html">About</a></li>
         </ul>
         <div class="main">
-            <img id="logo" src="images/beter-min.png" alt="🅱️ enry S🅱️ eak Logo" title="🅱️enry S🅱️eak Logo">
+            <img id="logo" src="src/images/beter-min.png" alt="🅱️ enry S🅱️ eak Logo" title="🅱️enry S🅱️eak Logo">
         </div>
         <p1>1 like = 10 free iphone</p1><br>
         <form action="home.php" method="get">
             <textarea name="input" cols="80" rows="15" style="margin-top:10px" placeholder="Enter text here" id="textField"><?php
     if (isset($_GET['say']) && $_GET['say'] == 'true'){
-        echo exec("ruby biboBepisGithubb.rb '".$_GET["input"]."'");
-        exec("ruby biboBepisGithubbSay.rb '".$_GET["input"]."'");
+        echo exec("ruby src/biboBepisGithubb.rb '".$_GET["input"]."'");
+        exec("ruby src/biboBepisGithubbSay.rb '".$_GET["input"]."'");
     } else {
-        echo exec("ruby biboBepisGithubb.rb '".$_GET["input"]."'");
+        echo exec("ruby src/biboBepisGithubb.rb '".$_GET["input"]."'");
     }
 ?></textarea><br>
             <div class="holdshit">

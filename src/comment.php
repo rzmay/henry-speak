@@ -172,7 +172,7 @@
 </head>
     <body>
         <ul>
-          <li><a href="home.php">Home</a></li>
+          <li><a href="/henry-speak/home.php">Home</a></li>
           <li><a class="active">Contact</a></li>
           <li style="float:right"><a href="about.html">About</a></li>
         </ul>

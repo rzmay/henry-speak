@@ -157,28 +157,6 @@ def translateWord(str, fustr, ind)
       tempret = str
     end
     return tempret
-  elsif str == 'gay' || str == 'homosexual' || str == 'homo' || str == 'fag' || str == 'faggot'
-    whichGay = fauxRand(fustr, ind, 1, 3)
-    case whichGay
-    when 1
-      return "gæ"
-    when 2
-      return "gau"
-    when 3
-      return "hømößęxûåł"
-    end
-  elsif str == 'stupid' || str == 'dumb' || str == 'foolish'
-    whichRetard = fauxRand(fustr, ind, 1, 3)
-    case whichRetard
-    when 1
-      return 'retarded'
-    when 2
-      return 'autistic'
-    when 3
-      return str + ' and also ' + translateWord('gay', fustr, ind)
-    end
-  elsif str == 'nigger' || str == 'nigga'
-    return "bibbo"
   elsif str == 'who' || str == 'whom'
     whichWho = fauxRand(fustr, ind, 1, 6)
     case whichWho
@@ -293,38 +271,19 @@ def translateWord(str, fustr, ind)
   end
 end
 
-def chances()
-  random = Random.rand(1..30)
-  string = "none"
-  if random == 1
-    string = "don't come to school tomorrow."
-  elsif random == 2
-    string = "Hey Beter!"
-  elsif random == 3
-    string = "To be fair, you have to have a very high IQ to understand Rick and Morty. The humour is extremely subtle, and without a solid grasp of theoretical physics most of the jokes will go over a typical viewer’s head. There’s also Rick’s nihilistic outlook, which is deftly woven into his characterisation, his personal philosophy draws heavily from Narodnaya Volya literature, for instance. The fans understand this stuff. they have the intellectual capacity to truly appreciate the depthsof these jokes, to realise that they’re not just funny, they say something deep about LIFE. As a consequence people who dislike Rick and Morty truly ARE idiots, of course they wouldn’t appreciate, for instance, the humour in Rick’s existential catchphrase “Wubba Lubba Dub Dub,” which itself is a cryptic reference to Turgenev’s Russian epic Fathers and Sons. I’m smirking right now just imagining one of those addlepated simpletons scratching their heads in confusion as Dan Harmon’s genius witunfolds itself on their television screens. What fools.. how I pity them."
-  end
-  return string
-end
 
 
 def main()
   full = ""
-  other = chances()
-  if other == "none"
-    ind = 0
-    ARGV[0].downcase.split(" ").each do |str|
-      full += translateWord(str, ARGV[0], ind)
-      full += " "
-      ind+=1
-    end
-    puts "\n" + full + "\n"
-    system("say \"#{full}\"")
-    return full
-  else
-    puts "\n" + other + "\n"
-    system("say \"#{other}\"")
-    return other
+  ind = 0
+  ARGV[0].downcase.split(" ").each do |str|
+    puts "changing: ", str, ind
+    full += translateWord(str, ARGV[0], ind)
+    full += " "
+    ind+=1
   end
+  puts "\n" + full + "\n"
+  system("echo \"#{full}\"")
 end
 
 main()
